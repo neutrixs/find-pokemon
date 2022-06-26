@@ -51,7 +51,7 @@ const config = dev => ({
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            publicPath: '/',
+            publicPath: './',
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/[contenthash].css',
