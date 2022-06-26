@@ -12,9 +12,11 @@ const setPokemonData: Dispatch<SetStateAction<pokemonDataType[]>> = () => {}
 const nextURL = ''
 const setNextURL: Dispatch<SetStateAction<string>> = () => {}
 
-export const PokemonDataContext = createContext({
+const PokemonDataContext = createContext({
     pokemonData,
     setPokemonData,
     nextURL,
     setNextURL,
 })
+
+export { pokemonDataType, PokemonDataContext }
