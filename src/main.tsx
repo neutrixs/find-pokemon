@@ -62,7 +62,7 @@ function Main() {
 
     return (
         <>
-            <p className={style.title}>Find Pokémon from its ability!</p>
+            <p className={style.title}>Find Pokémon!</p>
             <DataContext.Provider value={{ pokemonData, setPokemonData, nextURL, addData, filter, setFilter }}>
                 <Filter />
             </DataContext.Provider>
