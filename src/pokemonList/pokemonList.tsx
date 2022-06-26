@@ -4,7 +4,7 @@ import Loading from '../loading'
 import style from './pokemonListStyle.module.scss'
 
 export default function PokemonList() {
-    const { filter, pokemonData } = useContext(PokemonDataContext)
+    const { filter, pokemonData, addData } = useContext(PokemonDataContext)
     const [filteredData, setFilteredData] = useState<pokemonDataType[]>([])
     const [isLoading, setIsLoading] = useState(false)
 
@@ -41,11 +41,33 @@ export default function PokemonList() {
         ))
     }
 
+    function loading() {
+        return pokemonData.length == 0 || isLoading ? <Loading /> : null
+    }
+
+    function loadMoreButton() {
+        async function requestMore() {
+            setIsLoading(true)
+            await addData()
+            setIsLoading(false)
+        }
+
+        if (filter) return null
+        if (pokemonData.length == 0 || isLoading) return null
+
+        return (
+            <button className={style.button} onClick={requestMore}>
+                Load more
+            </button>
+        )
+    }
+
     return (
         <div className={style.holder}>
             {getFilteredAmount()}
             <div className={style.listHolder}>{renderData()}</div>
-            {pokemonData.length == 0 || isLoading ? <Loading /> : null}
+            {loading()}
+            {loadMoreButton()}
         </div>
     )
 }

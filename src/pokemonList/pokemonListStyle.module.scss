@@ -31,6 +31,18 @@
     }
 }
 
+.button {
+    background-color: hsl(240, 14%, 25%);
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.25em;
+    border-radius: 0.25em;
+    margin-top: 1em;
+    cursor: pointer;
+    box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.6);
+}
+
 @media (max-width: 50em) {
     .listHolder {
         grid-template-columns: repeat(1, minmax(0, 1fr));
