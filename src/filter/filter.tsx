@@ -16,7 +16,12 @@ export default function Filter() {
 
     return (
         <div className={style.inputHolder}>
-            <input className={style.input} placeholder="Filter pokémon by its name" onChange={onChange} ref={inputElement} />
+            <input
+                className={style.input}
+                placeholder="Filter pokémon by its name or ability"
+                onChange={onChange}
+                ref={inputElement}
+            />
         </div>
     )
 }

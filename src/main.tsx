@@ -27,6 +27,8 @@ function Main() {
             const rawThisPokemonData = await fetch(thisPokemon.url)
             const thisPokemonData = await rawThisPokemonData.json()
 
+            const thisPokemonAbility = thisPokemonData.abilities[0].ability.name
+
             const rawThisAbilityInfo = await fetch(thisPokemonData.abilities[0].ability.url)
             const thisAbilityInfo = await rawThisAbilityInfo.json()
 
@@ -40,6 +42,7 @@ function Main() {
 
             tempPokemonData[i] = {
                 name: thisPokemonName,
+                ability: thisPokemonAbility,
                 short_effect: thisPokemonShortEffect,
                 flavor_text_entries: thisPokemonFlavorTextEntries,
             }
