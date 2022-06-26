@@ -11,10 +11,13 @@ const setPokemonData: Dispatch<SetStateAction<pokemonDataType[]>> = () => {}
 
 const nextURL: MutableRefObject<string> = { current: '' }
 
+const addData: () => Promise<void> = async () => {}
+
 const PokemonDataContext = createContext({
     pokemonData,
     setPokemonData,
     nextURL,
+    addData,
 })
 
 export { pokemonDataType, PokemonDataContext }

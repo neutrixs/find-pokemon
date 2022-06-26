@@ -8,10 +8,12 @@ function Main() {
     const [pokemonData, setPokemonData] = useState<pokemonDataType[]>([])
     const nextURL = useRef('')
 
+    async function addData() {}
+
     return (
         <>
             <p className={style.title}>Find Pokémon from its ability!</p>
-            <DataContext.Provider value={{ pokemonData, setPokemonData, nextURL }}></DataContext.Provider>
+            <DataContext.Provider value={{ pokemonData, setPokemonData, nextURL, addData }}></DataContext.Provider>
         </>
     )
 }
