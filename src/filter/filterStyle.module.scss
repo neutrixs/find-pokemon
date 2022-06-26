@@ -1,0 +1,21 @@
+.input {
+    background-color: hsl(240, 14%, 25%);
+    color: inherit;
+    border: none;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-family: inherit;
+    width: calc(100% - 1em);
+    max-width: 50em;
+    box-shadow: 0.1em 0.1em 0.2em inset #000000a0, -0.1em -0.1em 0.2em inset #000000a0;
+    transition: 100ms;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0.2em 0.2em 0.2em inset #000000a0, -0.2em -0.2em 0.2em inset #000000a0;
+    }
+}
+
+.inputHolder {
+    margin: 0 2em;
+}
