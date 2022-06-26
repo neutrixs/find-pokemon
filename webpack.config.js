@@ -53,7 +53,9 @@ const config = dev => ({
             template: './src/index.html',
             publicPath: '/',
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'assets/[contenthash].css',
+        }),
     ],
     optimization: {
         minimizer: [
