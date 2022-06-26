@@ -66,7 +66,7 @@ const config = dev => ({
         runtimeChunk: 'single',
     },
     resolve: {
-        extensions: ['.tsx', '.ts'],
+        extensions: ['.tsx', '.ts', '.js'],
     },
     devServer: {
         host: '0.0.0.0',
