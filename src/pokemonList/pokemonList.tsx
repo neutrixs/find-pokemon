@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { PokemonDataContext, pokemonDataType } from '../store'
+import Loading from '../loading'
 import style from './pokemonListStyle.module.scss'
 
 export default function PokemonList() {
     const { filter, pokemonData } = useContext(PokemonDataContext)
     const [filteredData, setFilteredData] = useState<pokemonDataType[]>([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         const filtered = pokemonData.filter(pokemon => pokemon.name.includes(filter) || pokemon.ability.includes(filter))
@@ -25,7 +27,8 @@ export default function PokemonList() {
     return (
         <div className={style.holder}>
             {getFilteredAmount()}
-            <div></div>
+
+            {pokemonData.length == 0 || isLoading ? <Loading /> : null}
         </div>
     )
 }
