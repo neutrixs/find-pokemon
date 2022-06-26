@@ -9,9 +9,26 @@ import style from './mainStyle.module.scss'
 function Main() {
     const [pokemonData, setPokemonData] = useState<pokemonDataType[]>([])
     const [filter, setFilter] = useState('')
+    const [initialised, setInitialised] = useState(false)
     const nextURL = useRef('')
 
-    async function addData() {
+    useEffect(() => {
+        if (!initialised) return
+
+        localStorage.setItem('cachedData', JSON.stringify(pokemonData))
+        localStorage.setItem('nextURL', nextURL.current)
+    }, [pokemonData, nextURL])
+
+    async function addData(firstTime?: boolean) {
+        setInitialised(true)
+
+        if (firstTime && localStorage.getItem('cachedData') && localStorage.getItem('nextURL') != null) {
+            setPokemonData(JSON.parse(localStorage.getItem('cachedData') ?? ''))
+            nextURL.current = localStorage.getItem('nextURL') ?? ''
+
+            return
+        }
+
         const URL = nextURL.current || 'https://pokeapi.co/api/v2/pokemon?limit=50'
 
         const rawPokemonLists = await fetch(URL)
@@ -61,7 +78,7 @@ function Main() {
     }
 
     useEffect(() => {
-        addData()
+        addData(true)
     }, [])
 
     return (
