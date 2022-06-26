@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { pokemonDataType, PokemonDataContext as DataContext } from './store'
 import Filter from './filter'
+import PokemonList from './pokemonList'
 import './globalStyle.scss'
 import style from './mainStyle.module.scss'
 
@@ -68,6 +69,7 @@ function Main() {
             <p className={style.title}>Find Pokémon!</p>
             <DataContext.Provider value={{ pokemonData, setPokemonData, nextURL, addData, filter, setFilter }}>
                 <Filter />
+                <PokemonList />
             </DataContext.Provider>
         </>
     )
