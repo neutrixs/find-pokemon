@@ -6,6 +6,7 @@ import style from './mainStyle.module.scss'
 
 function Main() {
     const [pokemonData, setPokemonData] = useState<pokemonDataType[]>([])
+    const [filter, setFilter] = useState('')
     const nextURL = useRef('')
 
     async function addData() {
@@ -61,7 +62,9 @@ function Main() {
     return (
         <>
             <p className={style.title}>Find Pokémon from its ability!</p>
-            <DataContext.Provider value={{ pokemonData, setPokemonData, nextURL, addData }}></DataContext.Provider>
+            <DataContext.Provider
+                value={{ pokemonData, setPokemonData, nextURL, addData, filter, setFilter }}
+            ></DataContext.Provider>
         </>
     )
 }
