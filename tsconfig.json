@@ -6,7 +6,8 @@
         "pretty": true,
         "moduleResolution": "Node",
         "module": "ES2020",
-        "target": "ES2020"
+        "target": "ES2020",
+        "allowSyntheticDefaultImports": true
     },
     "compileOnSave": true,
     "include": ["./src"]
