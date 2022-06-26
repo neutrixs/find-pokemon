@@ -1,0 +1,62 @@
+.loadingAnimationHolder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0;
+}
+
+$DARKDARK: #808080;
+$DARKLIGHT: #dfdfdf;
+
+.loadingAnimation {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.5em;
+    background-color: $DARKLIGHT;
+    color: $DARKLIGHT;
+    animation: dotFlashingDark 0.5s infinite linear alternate;
+    animation-delay: 0.25s;
+    z-index: -1;
+
+    &::before,
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+    }
+
+    &::before {
+        left: -1.5em;
+        width: 1em;
+        height: 1em;
+        border-radius: 0.5em;
+        background-color: $DARKLIGHT;
+        color: $DARKLIGHT;
+        animation: dotFlashingDark 0.5s infinite alternate;
+        animation-delay: 0s;
+    }
+
+    &::after {
+        left: 1.5em;
+        width: 1em;
+        height: 1em;
+        border-radius: 0.5em;
+        background-color: $DARKLIGHT;
+        color: $DARKLIGHT;
+        animation: dotFlashingDark 0.5s infinite alternate;
+        animation-delay: 0.5s;
+    }
+}
+
+@keyframes dotFlashingDark {
+    0% {
+        background-color: $DARKLIGHT;
+    }
+    50%,
+    100% {
+        background-color: $DARKDARK;
+    }
+}
