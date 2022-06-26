@@ -24,10 +24,27 @@ export default function PokemonList() {
         return <p>Showing {filteredData.length} items that matched filter</p>
     }
 
+    function renderData(): React.ReactNode {
+        return filteredData.map(pokemon => (
+            <div className={style.eachPokemon}>
+                <p className={style.name}>{pokemon.name}</p>
+                <p>
+                    <span>Ability:</span> {pokemon.ability}
+                </p>
+                <p>
+                    <span>Short Effect:</span> {pokemon.short_effect}
+                </p>
+                <p>
+                    <span>Flavor text entries:</span> {pokemon.flavor_text_entries}
+                </p>
+            </div>
+        ))
+    }
+
     return (
         <div className={style.holder}>
             {getFilteredAmount()}
-
+            <div className={style.listHolder}>{renderData()}</div>
             {pokemonData.length == 0 || isLoading ? <Loading /> : null}
         </div>
     )
