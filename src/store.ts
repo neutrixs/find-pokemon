@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction } from 'react'
+import { createContext, Dispatch, SetStateAction, MutableRefObject } from 'react'
 
 interface pokemonDataType {
     name: string
@@ -9,14 +9,12 @@ interface pokemonDataType {
 const pokemonData: pokemonDataType[] = []
 const setPokemonData: Dispatch<SetStateAction<pokemonDataType[]>> = () => {}
 
-const nextURL = ''
-const setNextURL: Dispatch<SetStateAction<string>> = () => {}
+const nextURL: MutableRefObject<string> = { current: '' }
 
 const PokemonDataContext = createContext({
     pokemonData,
     setPokemonData,
     nextURL,
-    setNextURL,
 })
 
 export { pokemonDataType, PokemonDataContext }
