@@ -2,7 +2,7 @@ import { createContext, Dispatch, SetStateAction, MutableRefObject } from 'react
 
 interface pokemonDataType {
     name: string
-    ability: string
+    flavor_text_entries: string
     short_effect: string
 }
 
