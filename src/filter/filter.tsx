@@ -5,13 +5,9 @@ import style from './filterStyle.module.scss'
 export default function Filter() {
     const { setFilter } = useContext(PokemonDataContext)
     const inputElement = useRef<HTMLInputElement>(null)
-    const setFilterTimeout = useRef<NodeJS.Timeout>(setTimeout(() => {}))
 
     function onChange() {
-        clearTimeout(setFilterTimeout.current)
-        setFilterTimeout.current = setTimeout(() => {
-            setFilter(inputElement.current?.value || '')
-        }, 200)
+        setFilter(inputElement.current?.value || '')
     }
 
     return (
